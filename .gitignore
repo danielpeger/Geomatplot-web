@@ -33,7 +33,4 @@ octave-workspace
 #MacOS DS_Store
 .DS_Store
 
-#Thesis files
-thesis
-
 *.ini
