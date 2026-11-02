@@ -1,0 +1,56 @@
+{
+  "name": "geomatplot",
+  "version": "0.1.0",
+  "description": "Interactive geometry plots for the web: a port of the MATLAB Geomatplot library with WebGPU and Canvas 2D renderers (proof of concept)",
+  "type": "module",
+  "license": "MIT",
+  "author": "Daniel Péger, Csaba Bálint, Róbert Bán",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielpeger/Geomatplot-web.git",
+    "directory": "poc"
+  },
+  "homepage": "https://github.com/danielpeger/Geomatplot-web#readme",
+  "keywords": [
+    "geometry",
+    "interactive",
+    "plot",
+    "webgpu",
+    "canvas",
+    "matlab"
+  ],
+  "main": "./dist/geomatplot.js",
+  "module": "./dist/geomatplot.js",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/geomatplot.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "unpkg": "./dist/geomatplot.iife.js",
+  "jsdelivr": "./dist/geomatplot.iife.js",
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "dev": "npm run build && vite",
+    "build:watch": "vite build --watch --emptyOutDir false",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "build": "tsc --noEmit && vite build && vite build --mode iife && tsc -p tsconfig.build.json"
+  },
+  "devDependencies": {
+    "@types/culori": "4.0.1",
+    "@webgpu/types": "0.1.74",
+    "typescript": "7.0.2",
+    "vite": "8.3.5",
+    "vitest": "5.0.5"
+  },
+  "dependencies": {
+    "culori": "4.0.2"
+  }
+}

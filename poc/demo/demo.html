@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Geomatplot-web</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: system-ui, sans-serif;
+      }
+      canvas {
+        display: block;
+        width: 100vw;
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="c"></canvas>
+
+    <script type="module">
+      import { Geomatplot, WebGPURenderer, Canvas2DRenderer } from "geomatplot";
+
+      Geomatplot.use(WebGPURenderer);
+      // Geomatplot.use(Canvas2DRenderer);
+
+      const g = new Geomatplot(document.getElementById("c"));
+
+      const A = g.Point([-3, -2]);
+      const B = g.Point([3, -1], { color: "red", size: 10 });
+      const C = g.Point([0, 3], { color: "green" });
+
+      g.Segment(A, B);
+      g.Segment(B, C);
+      g.Segment(C, A);
+
+      const M = g.Midpoint(A, B);
+      g.Segment(M, C, { color: "gray", dash: [6, 4] });
+      g.Circle(M, A, { color: "orange", width: 2 });
+    </script>
+  </body>
+</html>
